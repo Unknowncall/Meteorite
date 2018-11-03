@@ -1,0 +1,13 @@
+name: 'Meteorite'
+author: Unknowncall
+version: [1.0.0]
+description: Meteorite plugin
+depend: [ActionBarAPI, EffectLib]
+
+main: me.unknowncall.meteorite.Meteorite
+
+commands:
+  meteor:
+    usage: /<command>
+  villager:
+    usage: /<command>

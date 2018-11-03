@@ -1,0 +1,57 @@
+# Permissions
+# /meteor spawn - meteor.spawn
+# /meteor pos1 - meteor.pos
+# /meteor pos2 - meteor.pos
+# Breaks required for the meteor to give the key. The number is randomly picked in the range of min(inclusive)-max(inclusive)
+breaks:
+  min: 1
+  max: 10
+fall_direction:
+  change_in_x: # This changes the amount of blocks it moves in the X directions in blocks per tick (20 ticks is 1 second). Furthermore, it randomly chooses a number between the min(inclusive) and max(exclusive)
+    min: -.50
+    max: .50
+  change_in_y: -1.10 # Make this positive to have it go up and negative to go down. The closer the number it is to zero, the slower it falls.
+  change_in_z: # This changes the amount of blocks it moves in the Z directions in blocks per tick (20 ticks is 1 second). Furthermore, it randomly chooses a number between the min(inclusive) and max(exclusive)
+    min: -.50
+    max: .50
+# This is the location in which the meteor will spawn. To set this location shut down the server and set it here or type /meteor pos(1)/(2)
+spawn_location:
+  min: world|196.7665753436897|64.0|74.63548196810738
+  max: world|278.0040049545682|71.0|127.29780113572664
+  height: 250
+# This controls the time it takes for the meteor to spawn. This number is in seconds. If a meteor is already spawned, it will not spawn one. -1 to disable
+spawn_time: 60
+# This controls how long the meteor is active. After X amount of seconds it disappears.
+despawn_time: 120
+# This is the key for the villager and what will be given when the meteor breaks
+key: 131 1 name:cool_key lore:|&ccool_lore_on|&ba_cool_key
+action_bar:
+  # Variables %percent_left% %percent_completed% %blocks_needed% %blocks_mined% %progress_bar%
+  text: '&c%blocks_mined%&7/&c%blocks_needed% | %progress_bar%'
+  progress_bar:
+    first_edge: '&6['
+    last_edge: '&6]'
+    middle: '&7|'
+    middle_completed: '&a|'
+# All messages
+messages:
+  meteor_spawned: '&cScientists have detected a meteor heading for %location%. It
+    needs to be mined %mine_amount% for it to be opened!'
+  meteor_mined_broadcast: '&c%player% has succesfully mined the Meteorite!'
+  meteor_mined_self: '&cYou have mined the meteor the most and have been reward for a key.'
+  no_permission: '&7I can''t allow you to do that...'
+  meteor_active: '&7A meteor is already spawned.'
+  sending_meteor: '&aSending meteor...'
+  set_pos: '&aPosition set succesfully.'
+  meteor_vanished: '&cThe meteor has disappeared because nobody mined it...'
+# The block that the meteor is.
+block: COAL_BLOCK
+gui:
+  size: 1
+  title: '&cMeteor Shop'
+  items:
+    1:
+      display_item: 1 name:Stone lore:&eStone|&eis|&ecool.
+      pos: 1
+      cost: 1
+      command: 'give %player% diamond 1'
